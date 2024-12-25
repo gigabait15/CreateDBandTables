@@ -6,7 +6,7 @@ from sqlalchemy import create_engine, text
 
 load_dotenv()
 
-DB_NAME = ['dialogue_list', 'model', 'order_list', 'soardDB', 'stock', 'transactions']
+DB_NAME = ['dialogue_list', 'models', 'order_list', 'soardDB', 'stock', 'transactions']
 
 
 def create_database():

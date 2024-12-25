@@ -1,3 +1,5 @@
+from sqlalchemy.types import ARRAY, String
+
 from database import Base, bool_false, bool_true, int_pk
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import Mapped, mapped_column
@@ -21,7 +23,7 @@ class ModelsDrawList(Base):
     percent: Mapped[int]
     price: Mapped[int]
     owner: Mapped[str]
-    photos: Mapped[list[str]] = mapped_column(JSONB)
+    photos: Mapped[list[str]] = mapped_column(ARRAY(String))
     actual: Mapped[bool_true]
     owner_chat_id: Mapped[str]  #
     additional: Mapped[str]
@@ -51,7 +53,7 @@ class ModelsPosts(Base):
     percent: Mapped[int]
     price: Mapped[int]
     owner: Mapped[str]
-    photos: Mapped[list[str]] = mapped_column(JSONB)
+    photos: Mapped[list[str]] = mapped_column(ARRAY(String))
     actual: Mapped[bool_true]
     owner_chat_id: Mapped[str] #
     additional: Mapped[str]
