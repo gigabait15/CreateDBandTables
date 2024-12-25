@@ -1,6 +1,7 @@
 from database import Base, bool_false, int_default, int_pk_default, str_pk
 from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.types import ARRAY, String
 
 
 class BannedUsers(Base):
@@ -28,7 +29,7 @@ class CommonData(Base):
     monthsix: Mapped[int_default]
     monthwelve: Mapped[int_default]
     subs_status: Mapped[bool_false]
-    admins: Mapped[list[str]] = mapped_column(JSONB)
+    admins: Mapped[list[str]] = mapped_column(ARRAY(String))
 
 
     extend_existing = True
@@ -43,20 +44,20 @@ class Users(Base):
 
     user_name: Mapped[str_pk]
     balance: Mapped[int_default]
-    model_id: Mapped[list[int]] = mapped_column(JSONB)
+    model_id: Mapped[list[int]] = mapped_column(ARRAY(String))
     user_id: Mapped[str] #
     chat_id: Mapped[str] #
     terms_one: Mapped[bool_false]
     terms_two: Mapped[bool_false]
     user_wallet: Mapped[str]
     user_type: Mapped[str]
-    model_id_draw: Mapped[list[int]] = mapped_column(JSONB)
-    order_id_list: Mapped[list[int]] = mapped_column(JSONB)
+    model_id_draw: Mapped[list[int]] = mapped_column(ARRAY(String))
+    order_id_list: Mapped[list[int]] = mapped_column(ARRAY(String))
     banned: Mapped[bool_false]
     subscription: Mapped[bool_false]
     subscription_ex: Mapped[int_default]
     fake_name: Mapped[str]
-    chat_room_ids: Mapped[list[int]] = mapped_column(JSONB)
+    chat_room_ids: Mapped[list[int]] = mapped_column(ARRAY(String))
     opened_count: Mapped[int]
     finished_count: Mapped[int]
 
