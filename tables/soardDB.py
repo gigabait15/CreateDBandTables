@@ -9,8 +9,8 @@ class BannedUsers(Base):
     __tablename__ = 'banned_users'
 
     user_name: Mapped[str_pk]
-    chat_id: Mapped[str] #
-    reason: Mapped[str]
+    chat_id: Mapped[str] = mapped_column(nullable = True) #
+    reason: Mapped[str] = mapped_column(nullable = True)
 
     extend_existing = True
 
@@ -44,22 +44,22 @@ class Users(Base):
 
     user_name: Mapped[str_pk]
     balance: Mapped[int_default]
-    model_id: Mapped[list[int]] = mapped_column(ARRAY(String))
-    user_id: Mapped[str] #
-    chat_id: Mapped[str] #
+    model_id: Mapped[list[int]] = mapped_column(ARRAY(String), nullable=True)
+    user_id: Mapped[str] = mapped_column(nullable = True) #
+    chat_id: Mapped[str] = mapped_column(nullable = True) #
     terms_one: Mapped[bool_false]
     terms_two: Mapped[bool_false]
-    user_wallet: Mapped[str]
-    user_type: Mapped[str]
-    model_id_draw: Mapped[list[int]] = mapped_column(ARRAY(String))
-    order_id_list: Mapped[list[int]] = mapped_column(ARRAY(String))
+    user_wallet: Mapped[str] = mapped_column(nullable = True)
+    user_type: Mapped[str] = mapped_column(nullable = True)
+    model_id_draw: Mapped[list[int]] = mapped_column(ARRAY(String), nullable=True)
+    order_id_list: Mapped[list[int]] = mapped_column(ARRAY(String), nullable=True)
     banned: Mapped[bool_false]
     subscription: Mapped[bool_false]
     subscription_ex: Mapped[int_default]
-    fake_name: Mapped[str]
-    chat_room_ids: Mapped[list[int]] = mapped_column(ARRAY(String))
-    opened_count: Mapped[int]
-    finished_count: Mapped[int]
+    fake_name: Mapped[str] = mapped_column(nullable = True)
+    chat_room_ids: Mapped[list[int]] = mapped_column(ARRAY(String), nullable=True)
+    opened_count: Mapped[int] = mapped_column(nullable = True)
+    finished_count: Mapped[int] = mapped_column(nullable = True)
 
     extend_existing = True
 

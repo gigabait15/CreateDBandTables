@@ -91,7 +91,7 @@ def create_tables():
     # настройка аннотаций
 int_pk = Annotated[int, mapped_column(primary_key=True)]
 int_default = Annotated[int, mapped_column(default=0)]
-int_pk_default = Annotated[int, mapped_column(primary_key=True, default=1)]
+int_pk_default = Annotated[int, mapped_column(default=1)]
 
 str_pk = Annotated[str, mapped_column(primary_key=True)]
 

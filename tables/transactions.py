@@ -8,10 +8,10 @@ class Hashes(Base):
     __tablename__ = 'hashes'
 
     hash_id: Mapped[str_pk]
-    user_name: Mapped[str]
-    chat_id: Mapped[str] #
-    date: Mapped[str] #
-    amount: Mapped[int] = mapped_column(BigInteger, nullable=False)
+    user_name: Mapped[str] = mapped_column(nullable = True)
+    chat_id: Mapped[str] = mapped_column(nullable = True) #
+    date: Mapped[str] = mapped_column(nullable = True) #
+    amount: Mapped[int] = mapped_column(BigInteger, default = 0)
 
 
     extend_existing = True
@@ -25,12 +25,12 @@ class TransUsers(Base):
     __tablename__ = 'trans_users'
 
     trans_id: Mapped[int_pk]
-    trans_type: Mapped[str]
-    amount: Mapped[int]
-    user_name: Mapped[str]
-    moder_user_name: Mapped[str]
-    photo_path: Mapped[str]
-    trans_date: Mapped[str]
+    trans_type: Mapped[str] = mapped_column(nullable = True)
+    amount: Mapped[int] = mapped_column(nullable = True)
+    user_name: Mapped[str] = mapped_column(nullable = True)
+    moder_user_name: Mapped[str] = mapped_column(nullable = True)
+    photo_path: Mapped[str] = mapped_column(nullable = True)
+    trans_date: Mapped[str] = mapped_column(nullable = True)
 
     extend_existing = True
 

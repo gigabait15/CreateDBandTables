@@ -1,5 +1,5 @@
 from database import Base, bool_false, bool_true, int_pk, int_pk_default
-from sqlalchemy.orm import Mapped
+from sqlalchemy.orm import Mapped, mapped_column
 
 
 class ChatStock(Base):
@@ -7,20 +7,20 @@ class ChatStock(Base):
     __tablename__ = 'chat_stock'
 
     chat_id: Mapped[int_pk_default]
-    chat_buyer: Mapped[str]
-    chat_seller: Mapped[str]
-    seller_chat_id: Mapped[str] #
-    buyer_chat_id: Mapped[str] #
-    seller_user_name: Mapped[str]
-    buyer_user_name: Mapped[str]
-    seller_fake_name: Mapped[str]
-    buyer_fake_name: Mapped[str]
+    chat_buyer: Mapped[str] = mapped_column(nullable = True)
+    chat_seller: Mapped[str] = mapped_column(nullable = True)
+    seller_chat_id: Mapped[str] = mapped_column(nullable = True) #
+    buyer_chat_id: Mapped[str] = mapped_column(nullable = True) #
+    seller_user_name: Mapped[str] = mapped_column(nullable = True)
+    buyer_user_name: Mapped[str] = mapped_column(nullable = True)
+    seller_fake_name: Mapped[str] = mapped_column(nullable = True)
+    buyer_fake_name: Mapped[str] = mapped_column(nullable = True)
     open: Mapped[bool_true]
-    model_id: Mapped[int]
+    model_id: Mapped[int] = mapped_column(nullable = True)
     order_created: Mapped[bool_false]
     seller_joined: Mapped[bool_false]
     buyer_joined: Mapped[bool_false]
-    order_id: Mapped[int]
+    order_id: Mapped[int] = mapped_column(nullable = True)
 
     extend_existing = True
 
@@ -33,9 +33,9 @@ class Queue(Base):
     __tablename__ = 'queue'
 
     queue_id: Mapped[int_pk]
-    model_id: Mapped[int]
-    buyer_chat_id: Mapped[str] #
-    seller_id: Mapped[int]
+    model_id: Mapped[int] = mapped_column(nullable = True)
+    buyer_chat_id: Mapped[str] = mapped_column(nullable = True) #
+    seller_id: Mapped[int] = mapped_column(nullable = True)
 
     extend_existing = True
 

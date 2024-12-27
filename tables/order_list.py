@@ -7,23 +7,23 @@ class Orders(Base):
     __tablename__ = 'orders'
 
     order_id: Mapped[int_pk]
-    seller_chat_id: Mapped[str] #
-    buyer_chat_id: Mapped[str] #
+    seller_chat_id: Mapped[str] = mapped_column(nullable = True) #
+    buyer_chat_id: Mapped[str] = mapped_column(nullable = True) #
     amount_model: Mapped[int_pk_default]
     buyer_amount: Mapped[int_pk_default]
     expiration: Mapped[int] = mapped_column(default=10)
-    model_id: Mapped[int]
-    model_user_name: Mapped[str]
+    model_id: Mapped[int] = mapped_column(nullable = True)
+    model_user_name: Mapped[str] = mapped_column(nullable = True)
     order_status: Mapped[bool_false]
     seller_ready: Mapped[bool_false]
     buyer_ready: Mapped[bool_false]
     order_finished: Mapped[bool_false]
-    date_open: Mapped[str]
-    date_close: Mapped[str]
-    seller_user_name: Mapped[str]
-    buyer_user_name: Mapped[str]
-    seller_fake_name: Mapped[str]
-    buyer_fake_name: Mapped[str]
+    date_open: Mapped[str] = mapped_column(nullable = True)
+    date_close: Mapped[str] = mapped_column(nullable = True)
+    seller_user_name: Mapped[str] = mapped_column(nullable = True)
+    buyer_user_name: Mapped[str] = mapped_column(nullable = True)
+    seller_fake_name: Mapped[str] = mapped_column(nullable = True)
+    buyer_fake_name: Mapped[str] = mapped_column(nullable = True)
     barrier: Mapped[bool_false]
 
     extend_existing = True
@@ -37,15 +37,15 @@ class OrdersDraw(Base):
     __tablename__ = 'orders_draw'
 
     order_draw_id: Mapped[int_pk]
-    model_id: Mapped[int]
-    seller_user_name: Mapped[str]
-    buyer_user_name: Mapped[str]
+    model_id: Mapped[int] = mapped_column(nullable = True)
+    seller_user_name: Mapped[str] = mapped_column(nullable = True)
+    buyer_user_name: Mapped[str] = mapped_column(nullable = True)
     seller_ready: Mapped[bool_false]
     buyer_ready: Mapped[bool_false]
-    seller_chat_id: Mapped[str]
-    buyer_chat_id: Mapped[str]
-    seller_fake_name: Mapped[str]
-    buyer_fake_name: Mapped[str]
+    seller_chat_id: Mapped[str] = mapped_column(nullable = True)
+    buyer_chat_id: Mapped[str] = mapped_column(nullable = True)
+    seller_fake_name: Mapped[str] = mapped_column(nullable = True)
+    buyer_fake_name: Mapped[str] = mapped_column(nullable = True)
 
     extend_existing = True
 
